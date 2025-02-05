@@ -4,15 +4,15 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.embeddings.gemini import GeminiEmbedding
 
 
-st.set_page_config(page_title="Chat with an expert on the works of Rabindranath Tagore", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
-st.title("Chat with an expert on the works of Rabindranath Tagore")
+st.set_page_config(page_title="Chat with an expert on computer networking", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.title("Chat with an expert on Networking")
 
 
 if "messages" not in st.session_state.keys():  # Initialize the chat messages history
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content": "Ask me a question about Rabindranath Tagore!!",
+            "content": "Ask me a question about Ethernet and Internet Protocols!!",
         }
     ]
 
@@ -27,11 +27,11 @@ def load_data():
     
     Settings.llm = Gemini(
         model="models/gemini-1.5-flash",
-        temperature=1.0,
-        system_prompt="""You are an expert on the work of Rabindrath Tagore.
-        Answer the question using the provided documents, which contain relevant excerpts from the work of Rabindrath Tagore.
-        The context for all questions is the work of Rabindrath Tagore. Whenver possible, include a quotation from the provided excerpts of his work to illustrate your point.
-        Respond using a florid but direct tone, typical of an early modernist writer.
+        temperature=0.5,
+        system_prompt="""You are an expert on Networking.
+        Answer the question using the provided documents, which contain relevant information on Ethernet and Internet Protocols.
+        The context for all questions is Ethernet and Internet Protocols. Whenver possible, include a quotation from the provided excerpts to illustrate your point.
+        Respond using a technical tone, typical of an expert CCIE personnel.
         Keep your answers under 100 words.""",
         api_key = st.secrets.google_gemini_key,
         safe = [
