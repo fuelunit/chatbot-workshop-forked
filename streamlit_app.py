@@ -74,6 +74,7 @@ def load_data():
             try:
                 index = VectorStoreIndex.from_documents(docs)
             except:
+                time.sleep(3)
                 continue
             break
    
