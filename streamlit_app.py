@@ -32,12 +32,11 @@ def load_data():
     docs = reader.load_data()
     
 
-    Settings.chunk_size = 500
+    Settings.chunk_size = 1500
     Settings.chunk_overlap = 50
-    Settings.num_files_limit = 1
     Settings.embed_model = GoogleGenAIEmbedding(
     model_name="text-embedding-005",
-    embed_batch_size=1,
+    embed_batch_size=100,
     api_key=st.secrets.google_gemini_key,
     )
 
