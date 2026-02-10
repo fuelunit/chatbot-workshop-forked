@@ -1,5 +1,6 @@
 import os
 os.environ["TIKTOKEN_CACHE_DIR"] = "/tmp"
+import time
 import streamlit as st
 from llama_index.llms.gemini import Gemini
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
@@ -36,7 +37,7 @@ def load_data():
     Settings.chunk_overlap = 50
     Settings.embed_model = GoogleGenAIEmbedding(
     model_name="gemini-embedding-001",
-    embed_batch_size=2,
+    embed_batch_size=20,
     api_key=st.secrets.google_gemini_key,
     )
 
