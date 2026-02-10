@@ -30,9 +30,11 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
 def load_data():
     reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
     docs = reader.load_data()
+    
 
     Settings.chunk_size = 500
     Settings.chunk_overlap = 50
+    Settings.num_files_limit = 1
     Settings.embed_model = GoogleGenAIEmbedding(
     model_name="gemini-embedding-001",
     embed_batch_size=1,
