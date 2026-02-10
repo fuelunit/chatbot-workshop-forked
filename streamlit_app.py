@@ -31,11 +31,11 @@ def load_data():
     reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
     docs = reader.load_data()
 
-    Settings.chunk_size = 1500
+    Settings.chunk_size = 500
     Settings.chunk_overlap = 50
     Settings.embed_model = GoogleGenAIEmbedding(
     model_name="gemini-embedding-001",
-    embed_batch_size=10,
+    embed_batch_size=1,
     api_key=st.secrets.google_gemini_key,
     )
 
