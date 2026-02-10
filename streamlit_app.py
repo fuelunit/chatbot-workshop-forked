@@ -36,7 +36,7 @@ def load_data():
     Settings.chunk_overlap = 50
     Settings.num_files_limit = 1
     Settings.embed_model = GoogleGenAIEmbedding(
-    model_name="gemini-embedding-001",
+    model_name="text-embedding-005",
     embed_batch_size=1,
     api_key=st.secrets.google_gemini_key,
     )
