@@ -70,11 +70,10 @@ def load_data():
 ],
     )
  
-
+    @step(retry_policy=ConstantDelayRetryPolicy(delay=5, maximum_attempts=10))
     index = VectorStoreIndex.from_documents(docs)
     return index
 
-@step(retry_policy=ConstantDelayRetryPolicy(delay=5, maximum_attempts=10))
 index = load_data()
 
 if "chat_engine" not in st.session_state.keys():  # Initialize the chat engine
